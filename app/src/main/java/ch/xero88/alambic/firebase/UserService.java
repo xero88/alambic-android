@@ -19,7 +19,7 @@ public class UserService {
     DatabaseReference mUserRef;
 
     public UserService(){
-        mUserRef = AlambicApp.getInstance().getDatabase().getReference("user");
+        mUserRef = AlambicApp.getInstance().getDatabase().getReference("users");
     }
 
     /**
