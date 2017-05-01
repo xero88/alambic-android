@@ -1,0 +1,55 @@
+{
+  "project_info": {
+    "project_number": "1068725862165",
+    "firebase_url": "https://alambic-84b49.firebaseio.com",
+    "project_id": "alambic-84b49",
+    "storage_bucket": "alambic-84b49.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:1068725862165:android:e0a3a77732d0bbb9",
+        "android_client_info": {
+          "package_name": "ch.xero88.alambic"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "1068725862165-dal75pbe8j31r1hdurgp5lb9m46r4vb5.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "ch.xero88.alambic",
+            "certificate_hash": "be5c7c78b3cf9d9b32de6a12f2dd4f22847ce27d"
+          }
+        },
+        {
+          "client_id": "1068725862165-jppvmkq49fucbvvlqrs7ivhp8858qvvm.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDNloD_kka7L_e3Tb6qKORId0iZiMJWHYQ"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 2,
+          "other_platform_oauth_client": [
+            {
+              "client_id": "1068725862165-jppvmkq49fucbvvlqrs7ivhp8858qvvm.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
