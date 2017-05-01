@@ -39,10 +39,14 @@ public class LoginPresenter implements LoginContract.UserActionsListener, Google
         mView = view;
         mActivity = activity;
 
-        // get current ui
+        // go home activity if still logged
         mAuth = FirebaseAuth.getInstance();
         FirebaseUser currentUser = mAuth.getCurrentUser();
-        mView.updateUI(currentUser);
+        if(currentUser != null){
+            saveLoggedUser(currentUser);
+            mView.showHomeActivity();
+            return;
+        }
 
         // configure auth
         // Configure Google Sign In
@@ -55,6 +59,10 @@ public class LoginPresenter implements LoginContract.UserActionsListener, Google
                 .enableAutoManage(mActivity /* FragmentActivity */, this /* OnConnectionFailedListener */)
                 .addApi(Auth.GOOGLE_SIGN_IN_API, gso)
                 .build();
+    }
+
+    private void saveLoggedUser(FirebaseUser user){
+        AlambicApp.getInstance().setCurrentUser(user);
     }
 
     @Override
@@ -91,13 +99,12 @@ public class LoginPresenter implements LoginContract.UserActionsListener, Google
                             // Sign in success, update UI with the signed-in user's information
                             Log.d(TAG, "signInWithCredential:success");
                             FirebaseUser user = mAuth.getCurrentUser();
-                            mView.updateUI(user);
-                            AlambicApp.getInstance().setCurrentUser(user);
+                            saveLoggedUser(user);
+                            mView.showHomeActivity();
 
                         } else {
                             // If sign in fails, display a message to the user.
                             Log.w(TAG, "signInWithCredential:failure", task.getException());
-                            mView.updateUI(null);
                             mView.showSignAuthFailed();
                         }
                     }

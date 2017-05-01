@@ -10,6 +10,7 @@ import android.widget.Toast;
 import com.google.firebase.auth.FirebaseUser;
 
 import ch.xero88.alambic.R;
+import ch.xero88.alambic.features.home.HomeActivity;
 
 public class LoginActivity extends AppCompatActivity implements LoginContract.View {
 
@@ -27,11 +28,13 @@ public class LoginActivity extends AppCompatActivity implements LoginContract.Vi
         presenter = new LoginPresenter(this /* View */, this /* Activity */);
     }
 
-    public void updateUI(FirebaseUser user) {
-        if(user != null)
-            Log.e(TAG, "updateUI: " + user.getDisplayName());
+    @Override
+    public void showHomeActivity() {
+        Intent intent = new Intent(this, HomeActivity.class);
+        startActivity(intent);
     }
 
+    @Override
     public void showSignAuthFailed(){
         Log.e(TAG, "error on auth ");
         Toast.makeText(this, "Error on auth", Toast.LENGTH_SHORT).show();

@@ -1,3 +1,7 @@
 <resources>
     <string name="app_name">Alambic</string>
+    <string name="no_points_yet">No points yet</string>
+    <string name="points">Points</string>
+    <string name="your_points">Your points</string>
+    <string name="welcome">Welcome</string>
 </resources>
