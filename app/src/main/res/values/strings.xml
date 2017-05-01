@@ -4,4 +4,7 @@
     <string name="points">Points</string>
     <string name="your_points">Your points</string>
     <string name="welcome">Welcome</string>
+    <string name="cannot_get_the_points">Cannot get the points, check your network</string>
+    <string name="loggout">Loggout</string>
+    <string name="press_back_again">Press back again to exit app</string>
 </resources>

@@ -1,7 +1,10 @@
 package ch.xero88.alambic;
 
 import android.app.Application;
+
+import com.google.firebase.FirebaseApp;
 import com.google.firebase.auth.FirebaseUser;
+import com.google.firebase.database.FirebaseDatabase;
 
 public class AlambicApp extends Application {
 
@@ -17,6 +20,18 @@ public class AlambicApp extends Application {
     public void onCreate() {
         super.onCreate();
         instance = this;
+
+        // firebase
+        FirebaseApp.initializeApp(this);
+        database = FirebaseDatabase.getInstance();
+    }
+
+    /**
+     * Firebase Instance
+     */
+    private FirebaseDatabase database;
+    public FirebaseDatabase getDatabase() {
+        return database;
     }
 
     /**
