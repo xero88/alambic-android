@@ -46,20 +46,23 @@ public class AlambicApp extends Application {
         FirebaseUser currentUser = mAuth.getCurrentUser();
         if(currentUser != null){
             // save user and member
-            AlambicApp.getInstance().setCurrentUser(currentUser);
-
-            ServicesManager.getInstance().getMemberService().getMember(currentUser, new MemberService.MemberCallback() {
-                @Override
-                public void getCurrentMember(Member member) {
-                    AlambicApp.getInstance().setCurrentMember(member);
-                }
-            });
+            saveLoggedUser(currentUser);
 
             // go to home activity directly
             Intent intent = new Intent(this, HomeActivity.class);
             intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
             startActivity(intent);
         }
+    }
+
+    public void saveLoggedUser(FirebaseUser user){
+        AlambicApp.getInstance().setCurrentUser(user);
+        ServicesManager.getInstance().getMemberService().getMember(user, new MemberService.MemberCallback() {
+            @Override
+            public void getCurrentMember(Member member) {
+                AlambicApp.getInstance().setCurrentMember(member);
+            }
+        });
     }
 
     /**

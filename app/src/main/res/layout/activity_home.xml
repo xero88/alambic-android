@@ -30,7 +30,7 @@
         android:id="@+id/pointsTxtView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="@string/no_points_yet"
+        android:text="0"
         style="@style/Base.TextAppearance.AppCompat.Large"
         android:textColor="@android:color/holo_red_dark"/>
 

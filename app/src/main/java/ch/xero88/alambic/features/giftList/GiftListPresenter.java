@@ -7,6 +7,7 @@ import com.google.firebase.auth.FirebaseUser;
 import java.util.ArrayList;
 
 import ch.xero88.alambic.AlambicApp;
+import ch.xero88.alambic.firebase.model.Member;
 import ch.xero88.alambic.firebase.service.GiftService;
 import ch.xero88.alambic.firebase.service.MemberService;
 import ch.xero88.alambic.firebase.model.Gift;
@@ -39,12 +40,14 @@ class GiftListPresenter implements GiftListContract.UserActionsListener {
     public void buyGift(Gift clickedGift) {
 
         FirebaseUser currentUser = AlambicApp.getInstance().getCurrentUser();
-        if(currentUser == null){
+        Member currentMember = AlambicApp.getInstance().getCurrentMember();
+        if(currentUser == null || currentMember == null){
             mView.pleaseRetry();
+            return;
         }
 
         // check if user had enough points
-        if(clickedGift.getPoints() > AlambicApp.getInstance().getCurrentMember().getAvailablePoints()){
+        if(clickedGift.getPoints() > currentMember.getAvailablePoints()){
             mView.notEnoughPoints();
             return;
         }

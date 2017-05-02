@@ -21,6 +21,9 @@ import com.google.firebase.auth.GoogleAuthProvider;
 
 import ch.xero88.alambic.AlambicApp;
 import ch.xero88.alambic.R;
+import ch.xero88.alambic.firebase.ServicesManager;
+import ch.xero88.alambic.firebase.model.Member;
+import ch.xero88.alambic.firebase.service.MemberService;
 
 public class LoginPresenter implements LoginContract.UserActionsListener, GoogleApiClient.OnConnectionFailedListener {
 
@@ -58,10 +61,6 @@ public class LoginPresenter implements LoginContract.UserActionsListener, Google
         mAuth = FirebaseAuth.getInstance();
     }
 
-    private void saveLoggedUser(FirebaseUser user){
-        AlambicApp.getInstance().setCurrentUser(user);
-    }
-
     @Override
     public void signIn() {
         if(mGoogleApiClient == null){
@@ -97,10 +96,11 @@ public class LoginPresenter implements LoginContract.UserActionsListener, Google
                     @Override
                     public void onComplete(@NonNull Task<AuthResult> task) {
                         if (task.isSuccessful()) {
-                            // Sign in success, update UI with the signed-in user's information
+                            // save user
                             Log.d(TAG, "signInWithCredential:success");
                             FirebaseUser user = mAuth.getCurrentUser();
-                            saveLoggedUser(user);
+                            AlambicApp.getInstance().saveLoggedUser(user);
+                            // go to home view
                             mView.showHomeActivity();
 
                         } else {
