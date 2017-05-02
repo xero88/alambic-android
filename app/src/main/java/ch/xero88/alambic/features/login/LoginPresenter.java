@@ -48,7 +48,11 @@ public class LoginPresenter implements LoginContract.UserActionsListener, Google
             return;
         }
 
-        // configure auth
+        initAuthConfig();
+    }
+
+    private void initAuthConfig(){
+
         // Configure Google Sign In
         GoogleSignInOptions gso = new GoogleSignInOptions.Builder(GoogleSignInOptions.DEFAULT_SIGN_IN)
                 .requestIdToken(mActivity.getString(R.string.default_web_client_id))
@@ -67,6 +71,10 @@ public class LoginPresenter implements LoginContract.UserActionsListener, Google
 
     @Override
     public void signIn() {
+        if(mGoogleApiClient == null){
+            initAuthConfig();
+        }
+
         Intent signInIntent = Auth.GoogleSignInApi.getSignInIntent(mGoogleApiClient);
         mActivity.startActivityForResult(signInIntent, RC_SIGN_IN);
     }
