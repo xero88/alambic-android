@@ -47,8 +47,8 @@ public class GiftListActivity extends AppCompatActivity implements GiftListContr
         mRecyclerView.setLayoutManager(mLayoutManager);
         mRecyclerView.setLayoutManager(new GridLayoutManager(this, 2));
 
-        // specify an adapter (see also next example)
-        mAdapter = new GiftAdapter(null, R.layout.card_view_gift);
+        // specify an adapter
+        mAdapter = new GiftAdapter(null, R.layout.card_view_gift, getApplicationContext());
         mRecyclerView.setAdapter(mAdapter);
     }
 

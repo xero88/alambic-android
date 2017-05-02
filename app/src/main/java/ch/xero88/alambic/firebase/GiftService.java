@@ -32,10 +32,8 @@ public class GiftService {
                 ArrayList<Gift> giftsList = new ArrayList<>();
                 for (DataSnapshot giftSnapshot: dataSnapshot.getChildren()) {
                     Gift gift = giftSnapshot.getValue(Gift.class);
+                    gift.setId(giftSnapshot.getKey()); // set id of Gift
 
-                    if(gift == null) {
-                        return;
-                    }
                     giftsList.add(gift);
                 }
                 callback.getAllGifts(giftsList);

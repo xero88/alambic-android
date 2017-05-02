@@ -5,6 +5,7 @@ import android.app.Application;
 import com.google.firebase.FirebaseApp;
 import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.storage.FirebaseStorage;
 
 public class AlambicApp extends Application {
 
@@ -24,15 +25,18 @@ public class AlambicApp extends Application {
         // firebase
         FirebaseApp.initializeApp(this);
         database = FirebaseDatabase.getInstance();
+        storage = FirebaseStorage.getInstance();
     }
 
     /**
-     * Firebase Instance
+     * Firebase Instance (db and storage)
      */
     private FirebaseDatabase database;
     public FirebaseDatabase getDatabase() {
         return database;
     }
+    private FirebaseStorage storage;
+    public FirebaseStorage getStorage() { return storage; }
 
     /**
      * Current Firebase user
