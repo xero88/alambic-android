@@ -37,14 +37,14 @@
     <!-- Buttons -->
 
     <Button
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="50dp"
         android:text="@string/buy_gifts"
         android:onClick="onBuyGiftClickButton"/>
 
     <Button
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="@string/loggout"
         android:onClick="onLoggoutClickButton"/>
