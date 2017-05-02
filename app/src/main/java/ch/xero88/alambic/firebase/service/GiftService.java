@@ -17,6 +17,11 @@ public class GiftService {
 
     private static final String TAG = "GiftService";
 
+    private static class GiftField{
+        static String points = "points";
+        static String name = "name";
+    }
+
     // refs
     private DatabaseReference mGiftRef;
 
@@ -50,8 +55,8 @@ public class GiftService {
             }
         };
         mGiftRef
+                .orderByChild(GiftField.points)
                 .addValueEventListener(postListener);
-
     }
 
     public interface GiftCallback{
