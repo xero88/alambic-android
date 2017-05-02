@@ -39,15 +39,6 @@ public class LoginPresenter implements LoginContract.UserActionsListener, Google
         mView = view;
         mActivity = activity;
 
-        // go home activity if still logged
-        mAuth = FirebaseAuth.getInstance();
-        FirebaseUser currentUser = mAuth.getCurrentUser();
-        if(currentUser != null){
-            saveLoggedUser(currentUser);
-            mView.showHomeActivity();
-            return;
-        }
-
         initAuthConfig();
     }
 
@@ -63,6 +54,8 @@ public class LoginPresenter implements LoginContract.UserActionsListener, Google
                 .enableAutoManage(mActivity /* FragmentActivity */, this /* OnConnectionFailedListener */)
                 .addApi(Auth.GOOGLE_SIGN_IN_API, gso)
                 .build();
+
+        mAuth = FirebaseAuth.getInstance();
     }
 
     private void saveLoggedUser(FirebaseUser user){

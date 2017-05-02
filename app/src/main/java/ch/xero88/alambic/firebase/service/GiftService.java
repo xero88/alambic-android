@@ -1,7 +1,8 @@
-package ch.xero88.alambic.firebase;
+package ch.xero88.alambic.firebase.service;
 
 import android.util.Log;
 
+import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
@@ -23,6 +24,9 @@ public class GiftService {
         mGiftRef = AlambicApp.getInstance().getDatabase().getReference("gifts");
     }
 
+    /**
+     * Get all the gifts available
+     */
     public void getAllGifts(final GiftCallback callback){
 
         ValueEventListener postListener = new ValueEventListener() {

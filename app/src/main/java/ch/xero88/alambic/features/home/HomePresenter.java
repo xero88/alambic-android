@@ -5,16 +5,16 @@ import android.support.v7.app.AppCompatActivity;
 import com.google.firebase.auth.FirebaseAuth;
 
 import ch.xero88.alambic.AlambicApp;
-import ch.xero88.alambic.firebase.UserService;
+import ch.xero88.alambic.firebase.service.MemberService;
 
 public class HomePresenter implements HomeContract.UserActionsListener {
 
-    private final UserService mUserService;
+    private final MemberService mMemberService;
     HomeContract.View mView;
 
-    public HomePresenter(HomeContract.View view, AppCompatActivity activity, UserService userService) {
+    public HomePresenter(HomeContract.View view, AppCompatActivity activity, MemberService memberService) {
         mView = view;
-        mUserService = userService;
+        mMemberService = memberService;
     }
 
     @Override
@@ -24,7 +24,7 @@ public class HomePresenter implements HomeContract.UserActionsListener {
         mView.updateMemberName(AlambicApp.getInstance().getCurrentUser().getDisplayName());
 
         // update points
-        mUserService.getPoints(AlambicApp.getInstance().getCurrentUser(), new UserService.PointsCallback() {
+        mMemberService.getAvailablePoints(AlambicApp.getInstance().getCurrentUser(), new MemberService.PointsCallback() {
             @Override
             public void getNbPoints(int nbPoints) {
                 mView.updatePoints(nbPoints);

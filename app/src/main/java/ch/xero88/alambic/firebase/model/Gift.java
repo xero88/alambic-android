@@ -10,7 +10,6 @@ public class Gift {
     private String id;
     private String name;
     private String description;
-    private String picturePath;
     private int points;
 
     public String getId() {
@@ -35,14 +34,6 @@ public class Gift {
 
     public void setDescription(String description) {
         this.description = description;
-    }
-
-    public String getPicturePath() {
-        return picturePath;
-    }
-
-    public void setPicturePath(String picturePath) {
-        this.picturePath = picturePath;
     }
 
     public int getPoints() {

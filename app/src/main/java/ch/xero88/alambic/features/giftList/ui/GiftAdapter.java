@@ -21,9 +21,12 @@ import ch.xero88.alambic.firebase.model.Gift;
 
 public class GiftAdapter extends RecyclerView.Adapter<GiftAdapter.ViewHolder> {
 
-    private int mItemLayout;
+    // gifts data
     private ArrayList<Gift> mGiftsDataSet;
+
+    private int mItemLayout;
     private Context mContext;
+    private View.OnClickListener mOnClickListener;
 
     public void updateGifts(ArrayList<Gift> gifts) {
         mGiftsDataSet = gifts;
@@ -43,16 +46,22 @@ public class GiftAdapter extends RecyclerView.Adapter<GiftAdapter.ViewHolder> {
         }
     }
 
-    public GiftAdapter(ArrayList<Gift> myDataset, int itemLayout, Context context) {
+    public GiftAdapter(ArrayList<Gift> myDataset, int itemLayout, Context context, View.OnClickListener onClickListener) {
         mGiftsDataSet = myDataset;
         mItemLayout = itemLayout;
         mContext = context;
+        mOnClickListener = onClickListener;
+    }
+
+    public ArrayList<Gift> getGiftsList() {
+        return mGiftsDataSet;
     }
 
     @Override
     public GiftAdapter.ViewHolder onCreateViewHolder(ViewGroup parent,
                                                    int viewType) {
         View v = LayoutInflater.from(parent.getContext()).inflate(mItemLayout, parent, false);
+        v.setOnClickListener(mOnClickListener);
         return new ViewHolder(v);
     }
 

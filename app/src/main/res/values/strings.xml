@@ -8,4 +8,7 @@
     <string name="loggout">Loggout</string>
     <string name="press_back_again">Press back again to exit app</string>
     <string name="buy_gifts">Buy gifts</string>
+    <string name="not_enough_points">Not enough points !</string>
+    <string name="please_retry_later">Please retry later</string>
+    <string name="gift_bought">Gift bought =)</string>
 </resources>

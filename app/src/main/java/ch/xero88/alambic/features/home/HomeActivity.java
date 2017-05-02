@@ -10,8 +10,7 @@ import android.widget.Toast;
 
 import ch.xero88.alambic.R;
 import ch.xero88.alambic.features.giftList.GiftListActivity;
-import ch.xero88.alambic.features.login.LoginActivity;
-import ch.xero88.alambic.firebase.UserService;
+import ch.xero88.alambic.firebase.ServicesManager;
 
 public class HomeActivity extends AppCompatActivity implements HomeContract.View{
 
@@ -31,7 +30,8 @@ public class HomeActivity extends AppCompatActivity implements HomeContract.View
         setContentView(R.layout.activity_home);
 
         // presenter
-        presenter = new HomePresenter(this, this, new UserService());
+        presenter = new HomePresenter(this, this,
+                ServicesManager.getInstance().getMemberService());
 
         // ui
         memberNameTxtView = (TextView) findViewById(R.id.memberNameTxtView);
