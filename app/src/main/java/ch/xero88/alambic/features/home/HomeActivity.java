@@ -9,6 +9,8 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import ch.xero88.alambic.R;
+import ch.xero88.alambic.features.giftList.GiftListActivity;
+import ch.xero88.alambic.features.login.LoginActivity;
 import ch.xero88.alambic.firebase.UserService;
 
 public class HomeActivity extends AppCompatActivity implements HomeContract.View{
@@ -17,7 +19,7 @@ public class HomeActivity extends AppCompatActivity implements HomeContract.View
     private HomePresenter presenter;
 
     // ui
-    private TextView welcomeTxtView;
+    private TextView memberNameTxtView;
     private TextView pointsTxtView;
 
     // state
@@ -32,7 +34,7 @@ public class HomeActivity extends AppCompatActivity implements HomeContract.View
         presenter = new HomePresenter(this, this, new UserService());
 
         // ui
-        welcomeTxtView = (TextView) findViewById(R.id.welcomeTxtView);
+        memberNameTxtView = (TextView) findViewById(R.id.memberNameTxtView);
         pointsTxtView = (TextView) findViewById(R.id.pointsTxtView);
         presenter.init();
     }
@@ -43,8 +45,9 @@ public class HomeActivity extends AppCompatActivity implements HomeContract.View
         backPressedTwice = false;
     }
 
-    public void updateWelcome(@NonNull String username){
-        welcomeTxtView.setText(getString(R.string.welcome) + " " + username);
+    @Override
+    public void updateMemberName(@NonNull String memberName){
+        memberNameTxtView.setText(memberName);
     }
 
     @Override
@@ -62,6 +65,11 @@ public class HomeActivity extends AppCompatActivity implements HomeContract.View
         finish();
     }
 
+    public void onBuyGiftClickButton(View view) {
+        Intent intent = new Intent(this, GiftListActivity.class);
+        startActivity(intent);
+    }
+
     @Override
     public void onBackPressed() {
         // no back
@@ -75,5 +83,4 @@ public class HomeActivity extends AppCompatActivity implements HomeContract.View
         Toast.makeText(this, getString(R.string.press_back_again), Toast.LENGTH_SHORT).show(); // TODO
         backPressedTwice = true;
     }
-
 }

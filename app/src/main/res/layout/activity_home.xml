@@ -13,7 +13,7 @@
     tools:context="ch.xero88.alambic.features.home.HomeActivity">
 
     <TextView
-        android:id="@+id/welcomeTxtView"
+        android:id="@+id/memberNameTxtView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         style="@style/Base.TextAppearance.AppCompat.Large"
@@ -34,10 +34,18 @@
         style="@style/Base.TextAppearance.AppCompat.Large"
         android:textColor="@android:color/holo_red_dark"/>
 
+    <!-- Buttons -->
+
     <Button
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="50dp"
+        android:text="@string/buy_gifts"
+        android:onClick="onBuyGiftClickButton"/>
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
         android:text="@string/loggout"
         android:onClick="onLoggoutClickButton"/>
 

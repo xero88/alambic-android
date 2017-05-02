@@ -21,7 +21,7 @@ public class HomePresenter implements HomeContract.UserActionsListener {
     public void init(){
 
         // update user name
-        mView.updateWelcome(AlambicApp.getInstance().getCurrentUser().getDisplayName());
+        mView.updateMemberName(AlambicApp.getInstance().getCurrentUser().getDisplayName());
 
         // update points
         mUserService.getPoints(AlambicApp.getInstance().getCurrentUser(), new UserService.PointsCallback() {
