@@ -46,6 +46,13 @@
     <Button
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:text="@string/pay_ticket"
+        android:onClick="onPayTicketClickButton"
+        android:enabled="false"/>
+
+    <Button
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
         android:text="@string/loggout"
         android:onClick="onLoggoutClickButton"/>
 

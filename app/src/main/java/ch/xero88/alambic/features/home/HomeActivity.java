@@ -10,6 +10,7 @@ import android.widget.Toast;
 
 import ch.xero88.alambic.R;
 import ch.xero88.alambic.features.giftList.GiftListActivity;
+import ch.xero88.alambic.features.payTicket.PayTicketActivity;
 import ch.xero88.alambic.firebase.ServicesManager;
 
 public class HomeActivity extends AppCompatActivity implements HomeContract.View{
@@ -70,6 +71,11 @@ public class HomeActivity extends AppCompatActivity implements HomeContract.View
         startActivity(intent);
     }
 
+    public void onPayTicketClickButton(View view) {
+        Intent intent = new Intent(this, PayTicketActivity.class);
+        startActivity(intent);
+    }
+
     @Override
     public void onBackPressed() {
         // no back
@@ -83,4 +89,5 @@ public class HomeActivity extends AppCompatActivity implements HomeContract.View
         Toast.makeText(this, getString(R.string.press_back_again), Toast.LENGTH_SHORT).show(); // TODO
         backPressedTwice = true;
     }
+
 }

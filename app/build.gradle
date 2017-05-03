@@ -45,9 +45,11 @@ dependencies {
     // FirebaseUI Storage only
     compile 'com.firebaseui:firebase-ui-storage:0.6.0'
 
-
-    // google auth
+    // Google auth
     compile 'com.google.android.gms:play-services-auth:9.8.0'
+
+    // Stripe
+    compile 'com.stripe:stripe-android:4.0.1'
 }
 
 

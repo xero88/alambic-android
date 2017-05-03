@@ -25,7 +25,8 @@
         <activity
             android:name=".features.home.HomeActivity"
             android:screenOrientation="portrait" />
-        <activity android:name=".features.giftList.GiftListActivity"></activity>
+        <activity android:name=".features.giftList.GiftListActivity" />
+        <activity android:name=".features.payTicket.PayTicketActivity"></activity>
     </application>
 
 </manifest>

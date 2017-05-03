@@ -11,4 +11,9 @@
     <string name="not_enough_points">Not enough points !</string>
     <string name="please_retry_later">Please retry later</string>
     <string name="gift_bought">Gift bought =)</string>
+    <string name="pay_ticket">Pay ticket</string>
+    <string name="pay">Pay</string>
+    <string name="error_on_payment">Error on payment, please retry</string>
+    <string name="successful_payment">Successful payment =)</string>
+    <string name="card_added_successful">Card added !</string>
 </resources>
