@@ -10,6 +10,7 @@ import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.storage.FirebaseStorage;
 
 import ch.xero88.alambic.features.home.HomeActivity;
+import ch.xero88.alambic.firebase.analytics.FIRLogging;
 import ch.xero88.alambic.firebase.service.MemberService;
 import ch.xero88.alambic.firebase.ServicesManager;
 import ch.xero88.alambic.firebase.model.Member;
@@ -74,6 +75,18 @@ public class AlambicApp extends Application {
     }
     private FirebaseStorage storage;
     public FirebaseStorage getStorage() { return storage; }
+
+    /**
+     * Logging Analytics
+     */
+    private FIRLogging logging;
+    public FIRLogging getLogging() {
+
+        if(logging == null)
+            logging = new FIRLogging(this);
+
+        return logging;
+    }
 
     /**
      * Current Firebase user

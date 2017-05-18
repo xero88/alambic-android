@@ -1,6 +1,7 @@
 package ch.xero88.alambic.features.login;
 
 import android.content.Intent;
+import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
@@ -13,6 +14,7 @@ import com.google.android.gms.common.ConnectionResult;
 import com.google.android.gms.common.api.GoogleApiClient;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
+import com.google.firebase.analytics.FirebaseAnalytics;
 import com.google.firebase.auth.AuthCredential;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
@@ -22,6 +24,7 @@ import com.google.firebase.auth.GoogleAuthProvider;
 import ch.xero88.alambic.AlambicApp;
 import ch.xero88.alambic.R;
 import ch.xero88.alambic.firebase.ServicesManager;
+import ch.xero88.alambic.firebase.analytics.FIRLogging;
 import ch.xero88.alambic.firebase.model.Member;
 import ch.xero88.alambic.firebase.service.MemberService;
 
@@ -102,6 +105,7 @@ public class LoginPresenter implements LoginContract.UserActionsListener, Google
                             AlambicApp.getInstance().saveLoggedUser(user);
                             // go to home view
                             mView.showHomeActivity();
+                            AlambicApp.getInstance().getLogging().login(user); // log event
 
                         } else {
                             // If sign in fails, display a message to the user.
